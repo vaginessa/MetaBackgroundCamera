@@ -21,25 +21,11 @@ public class Util {
     public static String PREFERENCE_NAME = "preference";
 
     public static void startService(Context context) {
-        if (isMyServiceRunning(context, MyService.class)) {
-            return;
-        }
-
         context.startService(new Intent(context, MyService.class));
-
-        Toast.makeText(context, "Service started", Toast.LENGTH_SHORT).show();
-        NewMessageNotification.notify(context, "Service started", 0);
     }
 
     public static void stopService(Context context) {
-        if (!isMyServiceRunning(context, MyService.class)) {
-            return;
-        }
-
         context.stopService(new Intent(context, MyService.class));
-
-        Toast.makeText(context, "Destroyed", Toast.LENGTH_SHORT).show();
-        NewMessageNotification.notify(context, "Destroyed", 1);
     }
 
 
